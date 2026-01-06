@@ -1,5 +1,9 @@
-import FriendsList from './components/FriendsList';
 import './index.css';
+import FriendsList from './components/FriendsList';
+import FormAddFriend from './components/FormAddFriend';
+import FormSplitBill from './components/FormSplitBill';
+import Button from './components/Button';
+import { useState } from 'react';
 
 const initialFriends = [
   {
@@ -23,11 +27,19 @@ const initialFriends = [
 ];
 
 function App() {
+  const [currentFriend, setCurrentFriend] = useState({});
+
   return (
     <div className='app'>
       <div className='sidebar'>
-        <FriendsList friends={initialFriends} />
+        <FriendsList
+          friends={initialFriends}
+          setCurrentFriend={setCurrentFriend}
+        />
+        <FormAddFriend />
+        <Button>Add Friens</Button>
       </div>
+      <FormSplitBill />
     </div>
   );
 }
