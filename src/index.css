@@ -20,4 +20,8 @@ html {
 body {
   box-sizing: border-box;
   color: #495057;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
