@@ -29,6 +29,7 @@ const initialFriends = [
 function App() {
   const [friends, setFriends] = useState(initialFriends);
   const [showAddFriend, setShowAddFriend] = useState(false);
+  const [selectedFriend, setSelectedFriend] = useState(null);
 
   function handleShowFriend() {
     setShowAddFriend((show) => !show);
@@ -41,16 +42,29 @@ function App() {
     setShowAddFriend(false);
   }
 
+  function handleSelectFriend(friend) {
+    console.log(friend);
+    //if current friend and selecrted friend are the same person, it returns null
+    setSelectedFriend((cur) => (cur?.id === friend.id ? null : friend));
+
+    // if add friend form is open, it is closed (no need to open both form )
+    setShowAddFriend(false);
+  }
+
   return (
     <div className='app'>
       <div className='sidebar'>
-        <FriendsList friends={friends} />
+        <FriendsList
+          friends={friends}
+          selectedFriend={selectedFriend}
+          onSelectFriend={handleSelectFriend}
+        />
         {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
         <Button onClick={handleShowFriend}>
           {showAddFriend ? 'Close' : 'Add Friend'}
         </Button>
       </div>
-      <FormSplitBill />
+      {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} />}
     </div>
   );
 }
