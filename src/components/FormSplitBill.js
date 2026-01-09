@@ -1,7 +1,7 @@
-export default function FormSplitBill() {
+export default function FormSplitBill({ selectedFriend }) {
   return (
     <form className='form-split-bill'>
-      <h2>Split a bill with X</h2>
+      <h2>Split a bill with {selectedFriend.name}</h2>
 
       <div>
         <label htmlFor='bill'>💰 Bill value</label>
@@ -12,7 +12,9 @@ export default function FormSplitBill() {
         <input type='text' id='myExpense' />
       </div>
       <div>
-        <label htmlFor='friendsExpense'>👭 X's expense</label>
+        <label htmlFor='friendsExpense'>
+          👭 {selectedFriend.name}'s expense
+        </label>
         <input type='text' id='friendsExpense' disabled />
       </div>
       <div>
@@ -20,7 +22,7 @@ export default function FormSplitBill() {
         <select id='who'>
           <option></option>
           <option value='user'>You</option>
-          <option value='friend'>Friend</option>
+          <option value='friend'>{selectedFriend.name}</option>
         </select>
       </div>
     </form>
