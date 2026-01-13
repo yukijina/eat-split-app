@@ -1,4 +1,15 @@
-# Getting Started with Create React App
+# Split The Bill
+
+A small React project that helps you split bills with friends and keep track of who owes what.
+
+## Features
+
+- Add friends with randomly generated profile images
+- Create bills and specify amounts paid by you and your friends
+- Select who paid the bill
+- Automatically calculate owed balances
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
